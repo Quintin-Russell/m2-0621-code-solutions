@@ -6,12 +6,12 @@ function Bank() {
 
 Bank.prototype.openAccount = function (holder, balance) {
   if ((balance > 0) && (balance % 1 === 0)) {
-    let acc = new Account(balance, holder);
-    acc.nextAccountNumber = this.nextAccountNumber;
-    acc.balance = balance;
+    let num = this.nextAccountNumber
+    let acc = new Account(num, holder);
+    acc.deposit(balance);
     this.accounts.push(acc);
-    this.nextAccountNumber +=1;
-    return (this.nextAccountNumber - 1)
+    this.nextAccountNumber++
+    return (acc.number)
   } else {
     return null
   }
