@@ -20,7 +20,7 @@ Bank.prototype.openAccount = function (holder, balance) {
 Bank.prototype.getAccount = function (number) {
   let account = null;
   for (let acc of this.accounts) {
-    if (acc.nextAccountNumber === number) {
+    if (acc.number === number) {
       account = acc;
       break
     };
@@ -31,7 +31,8 @@ Bank.prototype.getAccount = function (number) {
 Bank.prototype.getTotalAssets = function() {
   let total = 0;
   for (let acc of this.accounts) {
-    total += acc.balance
+    let balance = acc.getBalance()
+    total += balance
   }
   return total;
 }
