@@ -12,6 +12,7 @@ const imgArr = ["images/001.png", "images/004.png", "images/007.png", "images/02
 "images/039.png"];
 const $dotArr = [$zero, $one, $two, $three, $four];
 
+
 const changeDot = function() {
   for (let i = 0; i < $dotArr.length; i++){
     if (i === counter){
@@ -22,25 +23,27 @@ const changeDot = function() {
       white.setAttribute("class", "far fa-circle")
     }
   }
-}
-
-const timer = function() {
-  if (counter === 4){
+  $img.setAttribute("src", imgArr[counter])
+  if (counter === ($dotArr.length-1)) {
     counter = 0;
   } else {
     counter++;
   }
-  changeDot();
-  $img.setAttribute("src", imgArr[counter])
-}
+};
 
-setInterval(timer, 3000);
+let int = setInterval(changeDot, 3000);
+
+const interval = function () {
+  clearInterval(int);
+  int = setInterval(changeDot, 3000);
+};
 
 $container.addEventListener("click", function (e) {
   if (event.target === $zero) {
     $img.setAttribute("src", imgArr[0]);
     counter = 0;
     changeDot();
+    interval();
   }
 });
 
@@ -49,6 +52,7 @@ $container.addEventListener("click", function (e) {
     $img.setAttribute("src", imgArr[1]);
     counter = 1;
     changeDot();
+    interval();
   }
 });
 
@@ -57,6 +61,7 @@ $container.addEventListener("click", function (e) {
     $img.setAttribute("src", imgArr[2]);
     counter = 2;
     changeDot();
+    interval();
   }
 });
 
@@ -65,6 +70,7 @@ $container.addEventListener("click", function (e) {
     $img.setAttribute("src", imgArr[3]);
     counter = 3;
     changeDot();
+    interval();
   }
 });
 
@@ -73,33 +79,46 @@ $container.addEventListener("click", function (e) {
     $img.setAttribute("src", imgArr[4]);
     counter = 4;
     changeDot();
+    interval();
   }
 });
 
 $container.addEventListener("click", function (e) {
   if (event.target === $forward) {
-    if (counter === 4){
+    if (counter === ($dotArr.length - 1)){
       $img.setAttribute("src", imgArr[0]);
       counter = 0
       changeDot();
+      interval();
     } else {
       $img.setAttribute("src", imgArr[counter + 1]);
       counter += 1
       changeDot();
+      interval();
     }
   }
 });
 
 $container.addEventListener("click", function(e){
   if (event.target === $back) {
+    console.log("counter", counter);
     if (counter === 0) {
-      $img.setAttribute("src", imgArr[4]);
-      counter = 4
+      const len = imgArr.length - 1;
+      console.log("len", len);
+      counter = len;
+      $img.setAttribute("src", imgArr[len]);
+      console.log("img src", imgArr[len]);
       changeDot();
+      interval();
+      console.log("int reset")
     } else {
-      $img.setAttribute("src", imgArr[counter - 1]);
-      counter -= 1
+      counter--;
+      console.log(counter);
       changeDot();
+      console.log("counter decriment", counter)
+      console.log("img src", imgArr[counter]);
+      interval();
+      console.log("int reset")
     }
   }
 });
