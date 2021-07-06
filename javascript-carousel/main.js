@@ -1,5 +1,6 @@
 const $container = document.querySelector(".container");
 const $back = document.querySelector("#back");
+console.log("$back", $back);
 const $forward = document.querySelector("#forward");
 const $zero = document.querySelector("#zero");
 const $one = document.querySelector("#one");
@@ -12,7 +13,6 @@ const imgArr = ["images/001.png", "images/004.png", "images/007.png", "images/02
 "images/039.png"];
 const $dotArr = [$zero, $one, $two, $three, $four];
 
-
 const changeDot = function() {
   for (let i = 0; i < $dotArr.length; i++){
     if (i === counter){
@@ -22,9 +22,9 @@ const changeDot = function() {
       const white = $dotArr[i];
       white.setAttribute("class", "far fa-circle")
     }
-  }
+  };
   $img.setAttribute("src", imgArr[counter])
-  if (counter === ($dotArr.length-1)) {
+  if (counter === (($dotArr.length)-1)) {
     counter = 0;
   } else {
     counter++;
@@ -44,6 +44,7 @@ $container.addEventListener("click", function (e) {
     counter = 0;
     changeDot();
     interval();
+    counter=0;
   }
 });
 
@@ -102,21 +103,23 @@ $container.addEventListener("click", function (e) {
 $container.addEventListener("click", function(e){
   if (event.target === $back) {
     console.log("counter", counter);
-    if (counter === 0) {
-      const len = imgArr.length - 1;
+    if (counter <= 1) {
+      const len = ((imgArr.length) - 1);
       console.log("len", len);
       counter = len;
-      $img.setAttribute("src", imgArr[len]);
-      console.log("img src", imgArr[len]);
       changeDot();
+      counter = len;
       interval();
       console.log("int reset")
-    } else {
-      counter--;
-      console.log(counter);
+    } /* else if (counter === (imgArr.length) - 1){
+      counter = 3;
       changeDot();
-      console.log("counter decriment", counter)
-      console.log("img src", imgArr[counter]);
+      interval();
+    } */
+    else {
+      counter-=2;
+      console.log("counter decriment", counter);
+      changeDot();
       interval();
       console.log("int reset")
     }
