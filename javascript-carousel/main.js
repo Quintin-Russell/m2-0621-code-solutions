@@ -1,6 +1,5 @@
 const $container = document.querySelector(".container");
 const $back = document.querySelector("#back");
-console.log("$back", $back);
 const $forward = document.querySelector("#forward");
 const $zero = document.querySelector("#zero");
 const $one = document.querySelector("#one");
@@ -14,6 +13,7 @@ const imgArr = ["images/001.png", "images/004.png", "images/007.png", "images/02
 const $dotArr = [$zero, $one, $two, $three, $four];
 
 const changeDot = function() {
+  console.log(counter);
   for (let i = 0; i < $dotArr.length; i++){
     if (i === counter){
       const black = $dotArr[i];
@@ -35,6 +35,7 @@ let int = setInterval(changeDot, 3000);
 
 const interval = function () {
   clearInterval(int);
+  changeDot();
   int = setInterval(changeDot, 3000);
 };
 
@@ -42,9 +43,7 @@ $container.addEventListener("click", function (e) {
   if (event.target === $zero) {
     $img.setAttribute("src", imgArr[0]);
     counter = 0;
-    changeDot();
     interval();
-    counter=0;
   }
 });
 
@@ -52,7 +51,6 @@ $container.addEventListener("click", function (e) {
   if (event.target === $one) {
     $img.setAttribute("src", imgArr[1]);
     counter = 1;
-    changeDot();
     interval();
   }
 });
@@ -61,7 +59,6 @@ $container.addEventListener("click", function (e) {
   if (event.target === $two) {
     $img.setAttribute("src", imgArr[2]);
     counter = 2;
-    changeDot();
     interval();
   }
 });
@@ -70,7 +67,6 @@ $container.addEventListener("click", function (e) {
   if (event.target === $three) {
     $img.setAttribute("src", imgArr[3]);
     counter = 3;
-    changeDot();
     interval();
   }
 });
@@ -79,22 +75,16 @@ $container.addEventListener("click", function (e) {
   if (event.target === $four) {
     $img.setAttribute("src", imgArr[4]);
     counter = 4;
-    changeDot();
     interval();
   }
 });
 
 $container.addEventListener("click", function (e) {
   if (event.target === $forward) {
-    if (counter === ($dotArr.length - 1)){
-      $img.setAttribute("src", imgArr[0]);
-      counter = 0
-      changeDot();
+    if (counter === ($dotArr.length)){
+      counter = 0;
       interval();
     } else {
-      $img.setAttribute("src", imgArr[counter + 1]);
-      counter += 1
-      changeDot();
       interval();
     }
   }
@@ -102,26 +92,14 @@ $container.addEventListener("click", function (e) {
 
 $container.addEventListener("click", function(e){
   if (event.target === $back) {
-    console.log("counter", counter);
-    if (counter <= 1) {
-      const len = ((imgArr.length) - 1);
-      console.log("len", len);
-      counter = len;
-      changeDot();
-      counter = len;
+    if (counter === 1) {
+      counter = ($dotArr.length) - 1;
       interval();
-      console.log("int reset")
-    } /* else if (counter === (imgArr.length) - 1){
-      counter = 3;
-      changeDot();
+    } else if (counter === 0) {
+      counter = ($dotArr - 2);
       interval();
-    } */
-    else {
-      counter-=2;
-      console.log("counter decriment", counter);
-      changeDot();
-      interval();
-      console.log("int reset")
-    }
+    } else {
+    counter -= 2;
+    interval();
   }
-});
+}});
