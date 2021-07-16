@@ -1,0 +1,37 @@
+ul > li {
+  list-style: none;
+  width: 4rem;
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  padding: 10%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 6rem;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
