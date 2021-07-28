@@ -1,0 +1,330 @@
+    1  git config --global user.name "Quintin Russell"
+    2  git config --global user.email "quinn.j.russell@gmail.com"
+    3  git config --global --list
+    4  cd ~/repos/m2-0621-code-solutions
+    5  cd
+    6  cd ~/repos/m2-0621-code-solutions
+    7  cd
+    8  pwd
+    9  git clone git@github.com:Quintin-Russell/m2-0621-code-solutions.git
+   10  cd ~/repos/m2-0621-code-solutions
+   11  cd
+   12  cd ~repos/m2-0621-code-solutions
+   13  pwd
+   14  ct
+   15  cd
+   16  pwd
+   17  cd ~/repos
+   18  cd
+   19  mv -r ~/m2-0621-code-solutions ~/repos/
+   20  mv --help
+   21  mv ~/m2-0621-code-solutions ~/repos/
+   22  cd repos
+   23  cd
+   24  cd ~/repos/m2-0621-code-solutions
+   25  git status
+   26  git switch master
+   27  git pull origin master
+   28  git branch javascript-custom-methods
+   29  git branch --list
+   30  git switch javascript-custom-methods 
+   31  code .
+   32  git status
+   33  git add javascript-custom-methods/
+   34  git status
+   35  git commit -m "completed JS-custom-methods"
+   36  git push origin javascript-custom-methods 
+   37  git checkout master
+   38  git pull origin master
+   39  git branch javascript-this-basics
+   40  git branch --list
+   41  git switch javascript-this-basics 
+   42  code .
+   43  git status
+   44  git add javascript-this/
+   45  git status
+   46  git commit -m "completed JS-this"
+   47  git push origin master
+   48  git push origin javascript-this-basics 
+   49  git switch javascript-this-basics 
+   50  git branch -M javascript-this
+   51  git push origin javascript-this
+   52  git switch master
+   53  git pull origin master
+   54  git status
+   55  git branch javascript-prototypes
+   56  git switch javascript-prototypes 
+   57  code .
+   58  git add javascript-prototypes/
+   59  git status
+   60  git commit -m "completed JS-prototypes"
+   61  git push origin javascript-prototypes 
+   62  cd
+   63  cd ~/repos
+   64  cd m2-0621-code-solutions/
+   65  cd
+   66  cd ~/repos
+   67  git --list
+   68  cd m2-0621-code-solutions/
+   69  git switch master
+   70  git --list
+   71  git switch javascript-custom-methods 
+   72  code .
+   73  git switch master
+   74  git pull origin master
+   75  git status
+   76  git branch javascript-constructors
+   77  git switch javascript-constructors 
+   78  code .
+   79  git add javascript-constructors/
+   80  git status
+   81  git commit -m "completed JS-constructors"
+   82  git push origin javascript-constructors 
+   83  git add javascript-constructors/
+   84  git commit -m "new screenshots added to pull req"
+   85  git push origin javascript-constructors 
+   86  git switch master
+   87  git pull origin master
+   88  git branch javascript-bank
+   89  git switch javascript-bank 
+   90  code .
+   91  git add javascript-bank/
+   92  git commit -m "working"
+   93  cd ~/repos
+   94  cd m2-0621-code-solutions/
+   95  code .
+   96  cd ~/repos/driving-game/
+   97  git switch master
+   98  git pull origin master
+   99  cd
+  100  cd repos/m2-0621-code-solutions/
+  101  code .
+  102  git add javascript-carousel/
+  103  git commit -m "working"
+  104  cd
+  105  cd ~/repos/driving-game/
+  106  git branch issue-5-user-can-steer-their-car 
+  107  git switch issue-5-user-can-steer-their-car 
+  108  code .
+  109  git add .
+  110  git commit -m "added motion function"
+  111  git push origin issue-5-user-can-steer-their-car 
+  112  git status
+  113  git push origin issue-5-user-can-steer-their-car 
+  114  git add .
+  115  git status
+  116  git add .
+  117  git commit -m "edited"
+  118  git push origin issue-5-user-can-steer-their-car 
+  119  cd ~/repos/driving-game/
+  120  git add .
+  121  git push origin issue-5-user-can-steer-their-car 
+  122  code .
+  123  cd ~/repos/m2-0621-code-solutions/
+  124  git switch javascript-bank 
+  125  code .
+  126  cd
+  127  cd ~/repos/m2-0621-code-solutions/
+  128  git switch master
+  129  git pull origin master
+  130  git branch http-messages
+  131  git switch http-messages 
+  132  http https://example.com
+  133  http --verbose http://www.example.com
+  134  http --body GET https://jsonplaceholder.typicode.com/users > users.json
+  135  http --body GET https://example.com > index.html
+  136  git status
+  137  code .
+  138  git add http-messages/
+  139  git commit -m "completed http-messages"
+  140  git push origin http-messages 
+  141  git switch master
+  142  git pull origin master
+  143  git branch javascript-ajax
+  144  gi switch javascript-ajax
+  145  git switch javascript-ajax 
+  146  code .
+  147  git add javascript-ajax/
+  148  git commit -m "completed JS AJAX"
+  149  git push origin javascript-ajax 
+  150  cd ~/repos
+  151  ls
+  152  code .
+  153  cd
+  154  cd ~/repos
+  155  ls
+  156  git branch personal
+  157  cd code-journal/
+  158  code .
+  159  cd
+  160  cd ~/repos/m2-0621-code-solutions/
+  161  code .
+  162  cd
+  163  cd ~/repos/code-journal/
+  164  code .
+  165  .
+  166  git .
+  167  cd ~/repos/m2-0621-code-solutions/
+  168  code .
+  169  git switch javascript-carousel 
+  170  code .
+  171  git add javascript-carousel/
+  172  git commit -m "edited"
+  173  git push origin javascript-carousel 
+  174  git switch master
+  175  git pull origin master
+  176  cd
+  177  cd ~/repos/code-journal/
+  178  code .
+  179  cd ~/repos/ajax-project/
+  180  code .
+  181  git add .
+  182  git commit -m "advanced formatting of grateful screen and added media queries"
+  183  git add .
+  184  git commit -m "advanced formatting of grateful screen and added media queries"
+  185  cd ~/repos/m2-0621-code-solutions/
+  186  git switch javascript-constructors 
+  187  code .
+  188  cd ~/repos/ajax-project/
+  189  git add .
+  190  git commit -m "added event listeners to grateful buttons"
+  191  git add .
+  192  git commit -m "added event listeners to grateful buttons"
+  193  git add .
+  194  git commit -m "added event listeners to grateful buttons"
+  195  git add .
+  196  git commit -m "added event listeners to grateful buttons"
+  197  cd ~/repos/ajax-project/
+  198  code .
+  199  cd ~/repos/m2-0621-code-solutions/
+  200  git switch master
+  201  git pull origin master
+  202  git branch es6-const-let
+  203  git switch es6-const-let 
+  204  code .
+  205  git add es6-const-let/
+  206  git commit -m "completed const-let"
+  207  git push origin es6-const-let 
+  208  git add .
+  209  git commit -m "edited"
+  210  git push origin es6-const-let 
+  211  git switch master
+  212  git pull origin master
+  213  git branch es6-template-literals
+  214  git switch es6-template-literals 
+  215  code .
+  216  git add es6-template-literals/
+  217  git commit -m "completed es6-template-literals"
+  218  git push origin es6-template-literals 
+  219  git add es6-template-literals/
+  220  git commit -m "edited"
+  221  git push origin es6-template-literals 
+  222  git add es6-template-literals/
+  223  git commit -m "edited"
+  224  git push origin es6-template-literals 
+  225  git add
+  226  git add es6-template-literals/
+  227  git commit -m "edited"
+  228  git push origin es6-template-literals 
+  229  git switch master
+  230  git pull origin master
+  231  git branch es6-destructuring
+  232  git switch es6-destructuring 
+  233  code .
+  234  git add es6-destructuring/
+  235  git commit -m "completed es6-deconstructing"
+  236  git push origin es6-destructuring 
+  237  git swicth master
+  238  git switch master
+  239  git branch es6-arrow-functions
+  240  git switch es6-arrow-functions 
+  241  code .
+  242  git add es6-arrow-functions/
+  243  git commit -m "completed arrow-functions"
+  244  git push origin es6-arrow-functions 
+  245  git switch master
+  246  git pull origin master
+  247  git branch command-line-basics
+  248  git switch command-line-basics 
+  249  code .
+  250  cd command-line-basics/
+  251  pw
+  252  pwd
+  253  man
+  254  man man
+  255  man cat
+  256  man pwd
+  257  man cat
+  258  cat laziness.txt - impatience.txt - hubris.txt
+  259  cd
+  260  cd ~/repos/m2-0621-code-solutions/
+  261  man cat
+  262  cat laziness.txt
+  263  code .
+  264  cat - laziness.txt
+  265  cd ~/repos/m2-0621-code-solutions/
+  266  cat laziness.txt
+  267  cd ~/repos/m2-0621-code-solutions/
+  268  cd command-line-basics/
+  269  cat laziness.txt
+  270  cat impatience.txt
+  271  cat hubris.txt
+  272  cat laziness.txt impatience.txt hubris.txt
+  273  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  274  cat three-virtues.txt
+  275  man ls
+  276  ls -a
+  277  ls
+  278  ls -F
+  279  ls lfz-staff/
+  280  ls lfz-staff/ -a
+  281  ls lfz-staff/ -F
+  282  man ls
+  283  ls -aF lfz-staff > lfz-staff/contents.txt
+  284  cat lfz-staff/contents.txt 
+  285  man pwd
+  286  pwd 
+  287  pwd > i-was-here.txt
+  288  ls
+  289  cat i-was-here.txt 
+  290  man echo
+  291  echo 'Hello, world'
+  292  echo 'Hello, world' > hello.txt
+  293  ls
+  294  cat hello.txt 
+  295  man touch
+  296  touch tag-youre-it.txt
+  297  ls
+  298  cat tag-youre-it.txt 
+  299  touch snoot/boop.txt
+  300  ls snoot
+  301  man mkdir
+  302  mkdir parent
+  303  ls
+  304  mkdir -p parent/child/grandchild
+  305  ls parent
+  306  ls parent/child
+  307  touch parent/child/grandchild/.gitkeep
+  308  ls parent/child/grandchild/
+  309  ls paren
+  310  ls parent
+  311  las parent/child
+  312  ls parent/child
+  313  ls parent/child/grandchild
+  314  ls -a parent/child/grandchild
+  315  man mv
+  316  mv -T pokiemans pokemon
+  317  ls
+  318  man rm
+  319  rm lol.txt
+  320  ls
+  321  man rm
+  322  rm -r kill-me/
+  323  ls
+  324  man cp
+  325  cp and-then.txt no-and-then.txt
+  326  ls
+  327  cat and-then.txt no-and-then.txt 
+  328  man history
+  329  history
+  330  history > command-history.txt
