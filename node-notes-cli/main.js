@@ -19,7 +19,19 @@ function read() {
   }
 }
 
+function create() {
+  let nextID = dataJSON.nextId;
+  dataJSON.notes[nextID] = argument;
+  nextID++
+  const data = JSON.stringify(dataJSON);
+  return data
+}
+
 //logic tree to determine which function to run
 if (command === 'read') {
   read()
+} else if (command === 'create'){
+  fs.writeFile('data.json', create(), (err,data)=> {
+    if (err) throw err
+  })
 }
