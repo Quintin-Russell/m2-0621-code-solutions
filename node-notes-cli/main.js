@@ -2,6 +2,11 @@ const fs = require('fs');
 
 const dataJSON = require('./data.json');
 
+const entryArr = [];
+for (let x in dataJSON.notes) {
+  entryArr.push(x)
+};
+
 const argv = process.argv
 
 let command;
@@ -20,23 +25,23 @@ if (argv.length === 5) {
 }
 
 //functions
-function read() {
+function read(dataJSON) {
   for (let id in dataJSON.notes) {
     console.log(`${id}: ${dataJSON.notes[id]}`);
   }
 }
 
-function create() {
+function create(dataJSON, argument) {
   let nextID = dataJSON.nextId;
-  dataJSON.notes[nextID] = argument;
-  dataJSON.nextId = nextID + 1
-  const data = JSON.stringify(dataJSON, null, 2);
-  return data
+    dataJSON.notes[nextID] = argument;
+    dataJSON.nextId = nextID + 1
+    return JSON.stringify(dataJSON, null, 2);
+
 }
 
-function deleteEntry() {
+function deleteEntry(dataJSON, argument) {
   const obj = {};
-  for (let key in dataJSON.notes) {
+    for (let key in dataJSON.notes) {
     const val = dataJSON.notes[key];
     if (key !== argument) {
       obj[key] = val
@@ -45,9 +50,9 @@ function deleteEntry() {
   dataJSON.notes = obj;
   const data = JSON.stringify(dataJSON, null, 2);
   return data
-}
+    }
 
-function update() {
+function update(dataJSON, argument, argument2) {
   dataJSON.notes[argument] = argument2;
   const data = JSON.stringify(dataJSON, null, 2);
   return data
@@ -55,17 +60,19 @@ function update() {
 
 //logic tree to determine which function to run
 if (command === 'read') {
-  read()
-} else if (command === 'create'){
-  fs.writeFile('data.json', create(), (err,data)=> {
+  read(dataJSON)
+} else if ((command === 'create')&&(argument !== undefined)){
+  fs.writeFile('data.json', create(dataJSON, argument), (err,data)=> {
     if (err) throw err
   })
-} else if (command === 'delete') {
-  fs.writeFile('data.json', deleteEntry(), (err, data) => {
+} else if ((command === 'delete') && (argument !== undefined) && (entryArr.includes(argument))) {
+  fs.writeFile('data.json', deleteEntry(dataJSON, argument), (err, data) => {
     if (err) throw err
   })
-} else if (command === 'update') {
-  fs.writeFile('data.json', update(), (err, data) => {
+} else if ((command === 'update') && (argument !== undefined) && (argument2 !== undefined) && (entryArr.includes(argument))) {
+  fs.writeFile('data.json', update(dataJSON, argument, argument2), (err, data) => {
     if (err) throw err
   })
+} else {
+  console.log('Try again with all valid inputs')
 }
