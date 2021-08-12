@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// const router = express.Router();
 app.listen(3000, () => 'server is listening');
 
 const grades = {
@@ -36,5 +35,6 @@ app.get('/api/grades', (req, res, next) => {
 app.delete('/api/grades/:id', (req, res, next) => {
   const id = req.params.id;
   delete grades[id];
+  res.sendStatus(204);
   next();
 });
