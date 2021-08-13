@@ -46,3 +46,8 @@ app.get('/api/notes/:id', (req, res, next) => {
     res.status(404).json(message);
   }
 });
+
+// issue 3: POST req + content adds a new note obj to data.json + 201status;
+// no content = 400status + error obj; if content not successfully recorded in data.json
+// = 500status + error obj
+app.post('/api/notes/');
