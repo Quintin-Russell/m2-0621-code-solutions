@@ -22,8 +22,8 @@ app.get('/api/notes', (req, res, next) => {
 
 // issue 2: GET req w/ id returns the obj with that id; negative id = 400 status+err;
 // id does not exist = 404status+err
-app.get('/api/notes/:id', (req, res, next) => {
-  const id = req.params.id;
+app.get('/api/notes', (req, res, next) => {
+  const id = req.body;
   let object = null;
   if (id < 0) {
 
@@ -45,9 +45,28 @@ app.get('/api/notes/:id', (req, res, next) => {
     };
     res.status(404).json(message);
   }
+  next();
 });
 
 // issue 3: POST req + content adds a new note obj to data.json + 201status;
 // no content = 400status + error obj; if content not successfully recorded in data.json
 // = 500status + error obj
-app.post('/api/notes/');
+app.post('/api/notes', (req, res) => {
+  let nextId = dataJSON.nextId;
+  // console.log(req);
+  if (req.body !== undefined) {
+    const cont = req.body;
+    const entry = {
+      id: nextId,
+      content: cont
+    };
+    dataJSON.notes[nextId] = entry;
+    nextId++;
+    res.status(201).json(entry);
+  } else {
+    const err = {
+      error: 'content is a required field'
+    };
+    res.status(400).json(err);
+  }
+});
