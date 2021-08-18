@@ -82,7 +82,7 @@ app.post('/api/notes', (req, res) => {
 // xx- if valid id but error: next(err)
 // xxif valid id: delete note + 204 status
 
-app.delete('/api/notes/:id', (req, res, next) => {
+app.delete('/api/notes/:id', (req, res) => {
   const delId = req.params.id;
   if (delId > 0) {
     let entry;
@@ -107,6 +107,15 @@ app.delete('/api/notes/:id', (req, res, next) => {
     };
     res.status(400).json(error);
   }
+});
+
+// issue 5: PUT req:
+// - id is not a +int or no cont prop in req body: 400 status code + JSON error obj
+// - valid id but no cont prop: 404 status code + JSON error obj
+// - valid id + cont prop: not at id is updated with content value + 200 status code
+
+app.put('/api/notes/:id', (req, res) => {
+
 });
 
 app.use(function (err, req, res, next) {
