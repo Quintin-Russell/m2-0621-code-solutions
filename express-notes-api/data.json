@@ -1,5 +1,5 @@
 {
-  "nextId": 14,
+  "nextId": 22,
   "notes": {
     "2": {
       "id": 2,
@@ -8,34 +8,6 @@
     "5": {
       "id": 5,
       "content": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined."
-    },
-    "6": {
-      "id": 6,
-      "content": "A closure is formed when a function retains access to variables in its lexical scope."
-    },
-    "9": {
-      "id": 9,
-      "content": "Inertia is a property of matter."
-    },
-    "10": {
-      "content": {
-        "content": "puta madre"
-      },
-      "id": 10
-    },
-    "11": {
-      "content": {
-        "content": "puta madre"
-      },
-      "id": 11
-    },
-    "12": {
-      "content": "puta madre",
-      "id": 12
-    },
-    "13": {
-      "content": "puta madre",
-      "id": 13
     }
   }
 }
