@@ -112,10 +112,44 @@ app.delete('/api/notes/:id', (req, res) => {
 // issue 5: PUT req:
 // - id is not a +int or no cont prop in req body: 400 status code + JSON error obj
 // - valid id but no cont prop: 404 status code + JSON error obj
-// - valid id + cont prop: not at id is updated with content value + 200 status code
+// - valid id + cont prop: note at id is updated with content value + 200 status code
 
 app.put('/api/notes/:id', (req, res) => {
-
+  let changeId = req.params.id;
+  const content = req.body.content;
+  let exists;
+  let error;
+  if ((changeId > 0) && (content !== undefined)) {
+    for (const ent in dataJSON.notes) {
+      if (changeId === ent) {
+        changeId = Number(changeId);
+        dataJSON.notes[ent] = {
+          id: changeId,
+          content
+        };
+        exists = dataJSON.notes[ent];
+        writeFile('data.json', dataJSON);
+        res.status(200).json(exists);
+      }
+    }
+    if (exists === undefined) {
+      error = {
+        error: `cannot find note with id ${changeId}`
+      };
+      res.status(404).json(error);
+    }
+  } else {
+    if (changeId <= 0) {
+      error = {
+        error: 'id must be a positive integer'
+      };
+    } else if (content === undefined) {
+      error = {
+        error: 'content is a required field'
+      };
+    }
+    res.status(400).json(error);
+  }
 });
 
 app.use(function (err, req, res, next) {
