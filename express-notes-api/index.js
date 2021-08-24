@@ -111,9 +111,9 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 // issue 5: PUT req:
-// - id is not a +int or no cont prop in req body: 400 status code + JSON error obj
-// - valid id but no cont prop: 404 status code + JSON error obj
-// - valid id + cont prop: note at id is updated with content value + 200 status code
+// id is not a +int or no cont prop in req body: 400 status code + JSON error obj
+// valid id but no cont prop: 404 status code + JSON error obj
+// valid id + cont prop: note at id is updated with content value + 200 status code
 
 app.put('/api/notes/:id', (req, res) => {
   let changeId = Number(req.params.id);
