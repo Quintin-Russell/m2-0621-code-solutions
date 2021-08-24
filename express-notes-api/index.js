@@ -31,7 +31,7 @@ app.use(express.json());
 app.get('/api/notes/:id', (req, res) => {
   const id = req.params.id;
   let object = null;
-  if ((id > 0) && ((id % 1) === 1)) {
+  if ((id > 0) && ((id % 1) === 0)) {
     for (const obj in dataJSON.notes) {
       if (obj === id) {
         object = dataJSON.notes[id];
