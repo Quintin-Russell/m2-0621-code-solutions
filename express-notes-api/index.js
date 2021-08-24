@@ -85,7 +85,7 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   const delId = req.params.id;
-  if ((delId > 0) && ((delId % 1) === 1)) {
+  if ((delId > 0) && ((delId % 1) === 0)) {
     let entry;
     for (const ent in dataJSON.notes) {
       if (delId === ent) {
@@ -120,7 +120,7 @@ app.put('/api/notes/:id', (req, res) => {
   const reqBody = req.body;
   let exists;
   let error;
-  if ((changeId > 0) && ((changeId % 1) === 1) && (reqBody !== undefined)) {
+  if ((changeId > 0) && ((changeId % 1) === 0) && (reqBody !== undefined)) {
     const key = Object.keys(reqBody)[0];
     const cont = reqBody[key];
     for (const ent in dataJSON.notes) {
@@ -142,7 +142,7 @@ app.put('/api/notes/:id', (req, res) => {
       res.status(404).json(error);
     }
   } else {
-    if ((changeId <= 0) || ((changeId % 1) === 1)) {
+    if ((changeId <= 0) || ((changeId % 1) !== 0)) {
       error = {
         error: 'id must be a positive integer'
       };
