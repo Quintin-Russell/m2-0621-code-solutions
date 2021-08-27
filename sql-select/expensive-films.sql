@@ -1,3 +1,3 @@
 select "title"
   from "films"
-  order by "replacementCost"
+  order by "replacementCost" desc
