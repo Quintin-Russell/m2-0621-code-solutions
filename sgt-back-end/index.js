@@ -2,7 +2,7 @@
 // const pg = require('pg');
 
 // const app = express();
-// app.listen(3000, () => 'listening on port 3000');
+// app.listen(3000, () => console.log('listening on port 3000'));
 // const db = new pg.Pool({
 //   connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
 //   ssl: {
@@ -66,17 +66,46 @@
 // app.use(express.json());
 
 // app.post('/api/grades', (req, res, next) => {
+//   let cont = true;
 //   const idealKeys = ['name', 'course', 'score'];
-//   for (const key in idealKeys) {
-//     if ((Object.keys(req.body).includes(key)) === false) {
+//   const query = {
+//     text: `
+//     insert into "grades" ("name", "course", "score")
+//       values ($1, $2, $3)
+//     returning "gradeId", "name", "course", "score", "createdAt" as "returnSt"
+//     `,
+//     values: []
+//   };
+//   for (const key of idealKeys) {
+//     if (((Object.keys(req.body).includes(key)) === false) || (!req.body[key])) {
 //       const str = 'Please enter a valid grade, name, course, and score that is an integer';
-//       // returnError(res, 400, str);
+//       returnError(res, 400, str);
+//       cont = false;
+//       break;
 //     }
 //     if (key === 'score') {
-//       let val = req.body[key];
-//       val = parseInt(val, 10);
-//       req.body[key] = val;
+//       const parsedScore = parseInt(req.body[key]);
+//       if ((Number.isInteger(parsedScore) === false) || (parsedScore < 0) || (parsedScore > 100)) {
+//         const str = 'Please enter a valid grade, name, course, and score that is an integer between 0 and 100';
+//         returnError(res, 400, str);
+//         cont = false;
+//         break;
+//       }
+//       req.body[key] = parsedScore;
 //     }
+//     const val = req.body[key];
+//     query.values.push(val);
+//   }
+//   if (cont === true) {
+//     db.query(query)
+//       .then(result => {
+//         console.log(result.rows[0]);
+//         const ret = result.rows[0];
+//         res.status(204).json(ret);
+//       })
+//       .catch(err => {
+//         next(err);
+//       });
 //   }
 // });
 
